@@ -6,7 +6,7 @@ wget http://openvswitch.org/releases/openvswitch-2.3.0.tar.gz
 tar xfz openvswitch-2.3.0.tar.gz
 mkdir -p ~/rpmbuild/SOURCES
 sed 's/openvswitch-kmod, //g' openvswitch-2.3.0/rhel/openvswitch.spec > openvswitch-2.3.0/rhel/openvswitch_no_kmod.spec
-cp openvswitch-2.3.0.tar.gz rpmbuild/SOURCES
+cp openvswitch-2.3.0.tar.gz ~/rpmbuild/SOURCES
 rpmbuild -bb --without check ~/openvswitch-2.3.0/rhel/openvswitch_no_kmod.spec
 yum localinstall /root/rpmbuild/RPMS/x86_64/openvswitch-2.3.0-1.x86_64.rpm
 mkdir /etc/openvswitch

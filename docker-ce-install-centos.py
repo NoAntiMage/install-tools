@@ -24,6 +24,11 @@ os.system('sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo')
 
+#os.system('sudo yum-config-manager \
+#    --add-repo \
+#    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo')
+
+
 #安装docker
 os.system('sudo yum install -y docker-ce')
 #GPG key：060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35

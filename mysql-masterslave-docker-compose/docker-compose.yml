@@ -8,6 +8,7 @@ services:
       dockerfile: master/Dockerfile
     volumes:
       - ./master/config/my.cnf:/etc/mysql/my.cnf
+      - ./master/log-bin/:/var/lib/mysql/
     environment:
       - "MYSQL_ROOT_PASSWORD=123456"
     links:
@@ -23,6 +24,7 @@ services:
       dockerfile: slave/Dockerfile
     volumes:
       - ./slave/config/my.cnf:/etc/mysql/my.cnf
+      - ./slave/log-bin:/var/lib/mysql/
     environment:
       - "MYSQL_ROOT_PASSWORD=123456"
     ports:

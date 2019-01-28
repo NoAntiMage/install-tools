@@ -32,7 +32,7 @@ services:
 
     ports:
       - "9202:9202"
-      - "9302:9302"
+      - "10107:9302"
     environment:
       ES_JAVA_OPTS: "-Xmx1g -Xms1g"
     networks:
@@ -50,37 +50,36 @@ services:
 
     ports:
       - "9203:9203"
-      - "9303:9303"
+      - "10105:9303"
     environment:
       ES_JAVA_OPTS: "-Xmx1g -Xms1g"
     networks:
       - elk_claster
 
-#  logstash:
-#    build:
-#      context: logstash/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    volumes:
-#      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-#      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-#      - /var/:/var/
-#      - ./logstash/:/logstash/
-#     - ./mysql-connector-java-5.1.46.jar:/mysql/mysql-connector-java-5.1.46.jar
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - /var/:/var/
+      - ./logstash/:/logstash/
+      - ./mysql-connector-java-5.1.46.jar:/mysql/mysql-connector-java-5.1.46.jar
 
-#    ports:
-#      - "5000:5000"
-#      - "9600:9600"
-#    environment:
-#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-#    networks:
-#      - elk_claster
-#    depends_on:
-#      - es-node1
-#      - es-node2
-#      - es-node3
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx1g -Xms1g"
+    networks:
+      - elk_claster
+    depends_on:
+      - es-node1
+      - es-node2
+      - es-node3
 
 networks:
-
   elk_claster:
     driver: bridge

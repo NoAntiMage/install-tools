@@ -1,4 +1,4 @@
-
+#docker-compose up -d 启动完后，需要进入容器进行一下配置
 
 #CMD in mysql-master
 create user 'backup'@'%' identified by '123456';

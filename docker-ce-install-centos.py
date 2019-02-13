@@ -33,4 +33,11 @@ os.system('sudo yum-config-manager \
 os.system('sudo yum install -y docker-ce')
 #GPG key：060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35
 
+#安装docker-compose
+os.system('sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose')
+
+os.system('sudo chmod +x /usr/local/bin/docker-compose')
+
 os.system('docker -v')
+
+os.system('docker-compose --version')

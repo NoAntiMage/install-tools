@@ -41,3 +41,6 @@ os.system('sudo chmod +x /usr/local/bin/docker-compose')
 os.system('docker -v')
 
 os.system('docker-compose --version')
+
+#升级Docker CE
+#sudo yum makecache fast

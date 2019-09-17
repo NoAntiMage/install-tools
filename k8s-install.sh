@@ -8,6 +8,7 @@ setenforce 0
 
 sed -i "s/OPTIONS='--selinux-enabled --log-driver=journald --signature-verification=false'/OPTIONS='--selinux-enabled=false --insecure-registry gcr.io'/g" /etc/sysconfig/docker
 sed -i "s/ServiceAccount,//g" /etc/kubernetes/apiserver
+sed -i "s/--service-cluster-ip-range=10.254.0.0\/16/--service-cluster-ip-range=10.254.0.0\/16 --service-node-port-range=1-65535/g" /etc/kubernetes/apiserver
 
 for SERVICES in etcd docker kube-apiserver kube-controller-manager kube-scheduler kubelet kube-proxy
 do

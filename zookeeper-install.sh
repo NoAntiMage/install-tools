@@ -3,7 +3,7 @@
 WORK_DIR='/usr/local/zookeeper'
 DATA_DIR='/tmp/zookeeper'
 
-wget wget http://mirror.bit.edu.cn/apache/zookeeper/stable/apache-zookeeper-3.5.5.tar.gz
+wget http://mirror.bit.edu.cn/apache/zookeeper/stable/apache-zookeeper-3.5.5.tar.gz
 tar xf apache-zookeeper-3.5.5.tar.gz
 # cd apache-zookeeper-3.5.5/
 mv apache-zookeeper-3.5.5 /usr/local$WORK_DIR

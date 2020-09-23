@@ -19,10 +19,10 @@ class Host(object):
         self.size = size
         self.used = used
         self.avail = avail
-	self.percent = percent
+		self.percent = percent
 
     def __str__(self):
-	return self.name +':' + self.size +':' +  self.used + ':' + self.avail +':'+ sel
+	return self.name +':' + self.size +':' +  self.used + ':' + self.avail +':'+ self.percent
 
 
 def ansible_check():

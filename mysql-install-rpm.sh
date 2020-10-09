@@ -10,7 +10,7 @@ cd perl-5.16.1
 make && make test && make install
 perl -v
 
-wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
 
 # 删除mariadb
 rpm -e --nodeps $(rpm -qa | grep mariadb)

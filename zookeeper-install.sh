@@ -3,10 +3,9 @@
 WORK_DIR='/usr/local/zookeeper'
 DATA_DIR='/tmp/zookeeper'
 
-wget http://mirror.bit.edu.cn/apache/zookeeper/stable/apache-zookeeper-3.5.5.tar.gz
-tar xf apache-zookeeper-3.5.5.tar.gz
-# cd apache-zookeeper-3.5.5/
-mv apache-zookeeper-3.5.5 $WORK_DIR
+wget http://mirror.bit.edu.cn/apache/zookeeper/stable/apache-zookeeper-3.5.8-bin.tar.gz
+tar xf apache-zookeeper-3.5.8-bin.tar.gz
+mv apache-zookeeper-3.5.8-bin $WORK_DIR
 
 
 # 单节点启动

@@ -7,8 +7,8 @@ IP='192.168.239.158'
 inotifywait -mrq --format '%w%f' -e modify,create ${SRC} | while
 read line
 do
-  if [ -f $line ];then
+#  if [ -f $line ];then
     echo $line
     rsync -azurtopg --bwlimit=200 $line $user@$IP:$line
-  fi
+#  fi
 done

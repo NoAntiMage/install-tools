@@ -9,6 +9,6 @@ read line
 do
   if [ -f $line ];then
     echo $line
-    rsync -azurtopg $line $user@$IP:$line
+    rsync -azurtopg --bwlimit=200 $line $user@$IP:$line
   fi
 done

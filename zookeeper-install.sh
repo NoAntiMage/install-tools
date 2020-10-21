@@ -4,19 +4,21 @@ WORK_DIR='/usr/local/zookeeper'
 DATA_DIR='/tmp/zookeeper'
 
 wget http://mirror.bit.edu.cn/apache/zookeeper/stable/apache-zookeeper-3.5.8-bin.tar.gz
-tar xf apache-zookeeper-3.5.8-bin.tar.gz
+tar zxf apache-zookeeper-3.5.8-bin.tar.gz
 mv apache-zookeeper-3.5.8-bin $WORK_DIR
 
 
 # 单节点启动
-# ${WORK_DIR}/bin/zkServer.sh start
+${WORK_DIR}/bin/zkServer.sh start
+cd $WORK_DIR/conf
+cp zoo_sample.cfg zoo.cfg
 
 # 单机3节点集群部署
 cd $WORK_DIR/conf
 for i in `seq 1 3` 
 do 
 mkdir -p ${DATA_DIR}/zoo$i
-cp zoo.cfg zoo$i.cfg
+cp zoo_sample.cfg zoo$i.cfg
 echo "dataDir=${DATA_DIR}/zoo$i
 server.1=localhost:2666:3666
 server.2=localhost:2667:3667

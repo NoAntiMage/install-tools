@@ -4,7 +4,7 @@ wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.
 tar xzf inotify-tools-3.14.tar.gz ;cd inotify-tools-3.14
 ./configure --prefix=/usr/local/inotify && make && make install
 
-echo 'PATH=$PATH:/usr/inotify/bin/' >> /etc/profile
+echo 'PATH=$PATH:/usr/local/inotify/bin/' >> /etc/profile
 
 #inotify monitor
 # monitor_dir=''

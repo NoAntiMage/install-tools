@@ -24,6 +24,8 @@ rpm -ivh mysql-community-client-5.7.28-1.el7.x86_64.rpm
 rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
 rpm -ivh mysql-community-devel-5.7.28-1.el7.x86_64.rpm
 
+yum install -y mysql
+
 # 数据库初始化
 mysqld --initialize --user=mysql
 

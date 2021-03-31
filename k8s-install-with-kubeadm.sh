@@ -2,7 +2,7 @@
 # k8s version 1.19.2 following aliyun.repo
 
 IP=`ip a| grep global | head -1 | cut -d / -f 1 | awk '{print $2}'`
-VERSION='1.19.2'
+VERSION='1.18.8'
 
 # centos 系统初始化
 hostnamectl set-hostname master
@@ -35,19 +35,10 @@ yum ‐y remove docker docker‐common docker‐selinux docker‐engine
 yum install docker-ce -y
 systemctl start docker && systemctl enable docker
 
-yum install kubelet kubeadm kubectl -y
+yum install kubelet-${VERSION} kubeadm-${VERSION} kubectl-${VERSION} -y
 systemctl start kubelet && systemctl enable kubelet
 
-kubeadm config images list
-images=(
-	kube-apiserver:v1.19.2
-	kube-controller-manager:v1.19.2
-	kube-scheduler:v1.19.2
-	kube-proxy:v1.19.2
-	pause:3.2
-	etcd:3.4.13-0
-	coredns:1.7.0
-)
+images=$(kubeadm config images list --kubernetes-version=${VERSION}|awk -F '/' '{print $2}' )
 
 REPO='registry.cn-hangzhou.aliyuncs.com/google_containers'
 for imageName in ${images[@]}; do

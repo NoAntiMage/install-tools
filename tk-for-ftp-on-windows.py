@@ -9,6 +9,7 @@ import tarfile
 import os
 import json
 
+
 class Ui(object):
     def __init__(self):
         self.ftp = FtpClient()
@@ -72,15 +73,15 @@ class Ui(object):
 
     def update(self):
         self.info_label.configure(text='正在更新,请稍等...')
-        ftp = FtpClient()
-        _result = ftp.retrieve()
+        self.ftp.connect_init()
+        _result = self.ftp.retrieve()
         if _result is True:
             self.info_label.configure(text='下载成功，准备解压...')
 
             _result0 = os.system('dir hcm.tar.gz')
             if _result0 == 0:
                 self.info_label.configure(text='正在解压，请稍等...')
-                _result1 = ftp.uncompress()
+                _result1 = self.ftp.uncompress()
                 if _result1 is True:
                     self.info_label.configure(text='解压更新完成，请登录hcm平台查看。')
                 else:
@@ -101,9 +102,7 @@ class FtpClient(object):
         self.target_path = target_path
         self.handle_file = handle_file
         self.get_config()
-        self.f = FTP()
-
-        self.connect_init()
+        self.f = FTP(timeout=60)
 
     def get_config(self):
         try:

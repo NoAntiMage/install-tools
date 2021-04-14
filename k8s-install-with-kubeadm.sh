@@ -1,5 +1,5 @@
 #!/bin/sh
-# k8s version 1.19.2 following aliyun.repo
+# k8s version 1.18.8 following aliyun.repo
 
 IP=`ip a| grep global | head -1 | cut -d / -f 1 | awk '{print $2}'`
 VERSION='1.18.8'
@@ -32,7 +32,7 @@ yum clean all
 yum repolist -y
 
 yum ‐y remove docker docker‐common docker‐selinux docker‐engine
-yum install docker-ce -y
+yum install docker-ce-19.03.12 -y
 systemctl start docker && systemctl enable docker
 
 yum install kubelet-${VERSION} kubeadm-${VERSION} kubectl-${VERSION} -y
